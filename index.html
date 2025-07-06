@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARNAV VIP ANALYSER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #0c0c1c;
+      color: #00f0ff;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #00ffea;
+      text-shadow: 0 0 20px #00f0ff, 0 0 40px #0ff;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #fff;
+      background: #111;
+      padding: 6px 12px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0ff;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      text-align: center;
+      background: #111;
+      color: #00f0ff;
+      box-shadow: 0 0 10px #0ff;
+      margin-bottom: 16px;
+    }
+
+    button {
+      padding: 10px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      background: #00f0ff;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f0ff;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00bcd4;
+    }
+
+    .result {
+      font-size: 28px;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 15px #00ff00;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #00f0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .glow-name {
+      color: #ff004f;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff004f, 0 0 20px #ff004f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ARNAV VIP ANALYSER</h1>
+  <div class="tagline">MAINTAIN 6 LEVELS!!</div>
+
+  <input id="periodInput" type="text" placeholder="Enter Period Number">
+  <button onclick="predict()">Start Prediction</button>
+
+  <div class="result" id="resultBox"></div>
+
+  <div class="footer">
+    Created by <span class="glow-name">@arnav_1100</span><br>
+    Join Telegram: <a href="https://t.me/+fKHabYVx_shkMDk1" target="_blank">Click here</a>
+  </div>
+
+  <script>
+    function predict() {
+      const input = document.getElementById("periodInput").value.trim();
+      if (!input || isNaN(input)) {
+        alert("Enter a valid period number.");
+        return;
+      }
+
+      const lastDigit = parseInt(input.slice(-1));
+      const midDigit = parseInt(input.length >= 3 ? input.slice(-3, -2) : 0);
+
+      // Dummy logic: alternate logic reversed
+      let result;
+      if ((lastDigit + midDigit) % 2 === 0) {
+        result = "SMALL";
+      } else {
+        result = "BIG";
+      }
+
+      document.getElementById("resultBox").innerText = result;
+    }
+  </script>
+
+</body>
+</html>
